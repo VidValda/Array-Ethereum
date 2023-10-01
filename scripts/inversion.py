@@ -4,7 +4,7 @@ from scripts.helpful_scripts import get_account
 
 def inv():
     account = get_account()
-    inversor = ContratoInversion[-1]
+    inversor = deploy_inversor()
     entrance_fee = inversor.getEntranceFee()
     print(f"La comisión de entrada es de {entrance_fee}")
     inversor.invertir({"from": account, "value": 1000000000000000000})
@@ -12,7 +12,7 @@ def inv():
 
 def retirar():
     account = get_account()
-    inversor = ContratoInversion[-1]
+    inversor = deploy_inversor()
     inversor.retirar_inversion(1,{"from": account})
     print(f"Se ha retirado de {inversor.address}")
 
